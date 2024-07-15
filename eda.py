@@ -2,26 +2,26 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Load the cleaned data
+# Load the cleaned dataset
 df = pd.read_csv('cleaned_train.csv')
 
-# Histogram of Age distribution
+# Histogram of Age
 plt.figure(figsize=(10, 6))
-df['Age'].hist(bins=30, edgecolor='black')
+plt.hist(df['Age'], bins=30, edgecolor='black')
 plt.title('Age Distribution')
 plt.xlabel('Age')
 plt.ylabel('Frequency')
 plt.show()
 
-# Bar chart of Survival count
+# Bar plot of Survived
 plt.figure(figsize=(10, 6))
-df['Survived'].value_counts().plot(kind='bar', color=['blue', 'orange'])
+sns.countplot(x='Survived', data=df)
 plt.title('Survival Count')
 plt.xlabel('Survived')
 plt.ylabel('Count')
 plt.show()
 
-# Relationship between Pclass and Survival
+# Bar plot of Survival rate by Pclass
 plt.figure(figsize=(10, 6))
 sns.barplot(x='Pclass', y='Survived', data=df)
 plt.title('Survival Rate by Pclass')
