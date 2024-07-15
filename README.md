@@ -40,4 +40,4 @@ df.to_csv('cleaned_train.csv', index=False)
 print("Data cleaning completed.")
 # TitanicDataWrangling
 A comprehensive project focused on cleaning and preparing the Titanic dataset, making it ready for data analysis and visualization.
-Add detailed README for Titanic data wrangling project
+
