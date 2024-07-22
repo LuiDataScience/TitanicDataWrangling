@@ -1,44 +1,41 @@
 # Titanic Data Wrangling Project
 
-## Overview
-This project involves cleaning and preparing the Titanic dataset for analysis and visualization.
-
-## Objectives
-- Data Cleaning and Preprocessing
-- Exploratory Data Analysis (EDA)
-- Building a Basic Machine Learning Model
+## Objective
+A comprehensive project focused on cleaning and preparing the Titanic dataset, making it ready for data analysis and visualization.
 
 ## Steps
-1. **Data Cleaning**
-   - Handle missing values
-   - Remove duplicates
-   - Convert data types
+1. **Set Up the Environment**
+   - Ensure Python and required libraries (pandas) are installed.
+   - Set up a project directory and include the Titanic dataset (`train.csv`).
 
-2. **Exploratory Data Analysis (EDA)**
-   - Visualize data trends and relationships
-   - Create histograms, bar charts, and heatmaps
+2. **Create a Data Cleaning Script**
+   - Create a file named `data_cleaning.py` and use the following code:
 
-3. **Machine Learning Model**
-   - Train a logistic regression model
-   - Evaluate the model's performance
+```python
+import pandas as pd
 
-## Results
-- **Accuracy**: 0.82
-- **Confusion Matrix**:
-  |   | Predicted No | Predicted Yes |
-  |---|--------------|---------------|
-  | Actual No | 93           | 12            |
-  | Actual Yes | 21           | 53            |
+# Load the dataset
+df = pd.read_csv('train.csv')
 
-- **Classification Report**:
-          precision    recall  f1-score   support
+# Display basic information about the dataset
+print(df.info())
 
-       0       0.81      0.89      0.85       105
-       1       0.83      0.72      0.77        74
+# Handle missing values (e.g., fill missing age with mean)
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
 
-accuracy                           0.82       179
+# Detect and handle outliers (e.g., cap Fare values)
+df = df[df['Fare'] < 300]
 
-## Future Work
-- Further tuning of model hyperparameters
-- Exploring additional features for improved predictions
-- Implementing more advanced machine learning models
+# Convert data types
+df['Pclass'] = df['Pclass'].astype(int)
+df['Survived'] = df['Survived'].astype(int)
+
+# Remove duplicate data
+df = df.drop_duplicates()
+
+# Save the cleaned dataset
+df.to_csv('cleaned_train.csv', index=False)
+
+print("Data cleaning completed.")
+
