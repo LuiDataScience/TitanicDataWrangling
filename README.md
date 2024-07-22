@@ -1,35 +1,19 @@
 # Titanic Data Wrangling Project
 
+## Overview
+This project involves cleaning and preparing the Titanic dataset for analysis and visualization. The dataset is sourced from [Kaggle's Titanic - Machine Learning from Disaster competition](https://www.kaggle.com/c/titanic).
+
 ## Objective
 A comprehensive project focused on cleaning and preparing the Titanic dataset, making it ready for data analysis and visualization.
 
-## Dataset Details
-The Titanic dataset contains information about the passengers who were on board the Titanic when it sank on its maiden voyage. The dataset includes the following columns:
-
-- **PassengerId**: Unique ID for each passenger
-- **Survived**: Survival indicator (0 = No, 1 = Yes)
-- **Pclass**: Ticket class (1 = 1st, 2 = 2nd, 3 = 3rd)
-- **Name**: Name of the passenger
-- **Sex**: Gender of the passenger
-- **Age**: Age of the passenger
-- **SibSp**: Number of siblings/spouses aboard the Titanic
-- **Parch**: Number of parents/children aboard the Titanic
-- **Ticket**: Ticket number
-- **Fare**: Passenger fare
-- **Cabin**: Cabin number
-- **Embarked**: Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton)
-
-### Data Source
-The dataset was obtained from Kaggle's Titanic competition. The dataset can be downloaded from the following link:
-[Kaggle Titanic Dataset](https://www.kaggle.com/c/titanic/data)
-
 ## Steps
-1. **Set Up the Environment**
-   - Ensure Python and required libraries (pandas) are installed.
-   - Set up a project directory and include the Titanic dataset (`train.csv`).
 
-2. **Data Cleaning**
-   - Create a file named `data_cleaning.py` and use the following code:
+### 1. Set Up the Environment
+- Ensure Python and required libraries (pandas, matplotlib, seaborn, scikit-learn) are installed.
+- Set up a project directory and include the Titanic dataset (`train.csv`).
+
+### 2. Data Cleaning
+- Create a file named `data_cleaning.py` and use the following code:
 
 ```python
 import pandas as pd
@@ -58,3 +42,4 @@ df = df.drop_duplicates()
 df.to_csv('cleaned_train.csv', index=False)
 
 print("Data cleaning completed.")
+
