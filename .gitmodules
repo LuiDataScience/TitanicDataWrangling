@@ -1,0 +1,4 @@
+[submodule "TitanicDataWrangling"]
+  path = TitanicDataWrangling
+  url = https://github.com/LuiDataScience/TitanicDataWrangling
+
